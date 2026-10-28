@@ -1,0 +1,29 @@
+{
+  "test_accuracy": 1.0,
+  "test_loss": 0.0001,
+  "test_images": 879,
+  "test_errors": 0,
+  "confusion_matrix": [
+    [
+      457,
+      0
+    ],
+    [
+      0,
+      422
+    ]
+  ],
+  "test_near_duplicates_in_train": 1,
+  "class_names": [
+    "healthy",
+    "powdery_mildew"
+  ],
+  "split": "70/10/20 per class",
+  "seed": 42,
+  "epochs": 15,
+  "image_size": [
+    50,
+    50
+  ],
+  "keras": "3.15.1"
+}

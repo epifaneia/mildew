@@ -1,0 +1,6 @@
+# The notebooks: download, preparation, training and evaluation
+-r requirements.txt
+kaggle==2.2.5
+scikit-learn==1.9.1
+matplotlib==3.11.2
+jupyter==1.1.1
