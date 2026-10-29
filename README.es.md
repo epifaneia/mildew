@@ -54,7 +54,7 @@ streamlit run app/app.py
 
 El modelo entrenado está en el repositorio (`outputs/cherry_leaf_cnn.keras`), así que la app funciona sin reentrenar ni descargar el dataset. *Model Interaction* acepta imágenes JPG o PNG, varias a la vez o en un ZIP.
 
-TODO: hojas de muestra para probar la app (`samples/`): pendiente de comprobar la licencia.
+Para probarla sin el dataset, en [`samples/`](samples/) hay seis hojas, tres sanas y tres con oídio (el modelo acierta las seis). Vienen de PlantVillage, la colección pública de la que parecen salir estas hojas; pudieron estar en el entrenamiento, así que son una demostración, no una prueba.
 
 Para repetir todo el proceso, de la descarga a la evaluación:
 
@@ -72,6 +72,7 @@ El notebook 01 necesita un token de la API de Kaggle en `~/.kaggle/kaggle.json` 
 - **Sin control de imágenes fuera de distribución.** El modelo siempre responde sana u oídio, le enseñes lo que le enseñes, así que su respuesta solo significa algo para una hoja suelta sobre fondo liso, como las del dataset. Una imagen blanca, sin ninguna hoja, recibe una probabilidad de oídio de 0,69; imágenes de un solo color verde, gris o negro reciben de 0,00 a 0,99 según el tono. La app muestra este aviso en *Model Interaction*.
 - **Una ejecución, una semilla.** Sin validación cruzada. 0 errores en 879 no es «100 %»: por la regla del tres, la cota superior al 95 % de la tasa de error es de unos 3/879 = 0,34 %, en este tipo de imagen.
 - **Licencia del dataset:** no figura en su [página de Kaggle](https://www.kaggle.com/datasets/ahmadhabibhasanzein/cherry-leaves) (comprobado en octubre de 2026). Las imágenes no se redistribuyen aquí; los notebooks las descargan.
+- **Imágenes de muestra:** los seis ficheros de `samples/` son del dataset PlantVillage (D. P. Hughes y M. Salathé, [arXiv:1511.08060](https://arxiv.org/abs/1511.08060); [github.com/spMohanty/PlantVillage-Dataset](https://github.com/spMohanty/PlantVillage-Dataset)), con licencia [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/deed.es). Ficheros renombrados; por lo demás, sin cambios. Esa licencia dice además que los modelos entrenados con esos datos quedan bajo ella; si el dataset de Kaggle sale de PlantVillage, como parece, eso alcanzaría también a este modelo.
 - La app es una demo, no una herramienta para decidir en una plantación real.
 
 ---

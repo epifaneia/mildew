@@ -54,7 +54,7 @@ streamlit run app/app.py
 
 The trained model is in the repository (`outputs/cherry_leaf_cnn.keras`), so the app works without retraining or downloading the dataset. *Model Interaction* takes JPG or PNG images, several at once or in a ZIP.
 
-TODO: sample leaves to try the app (`samples/`): pending licence check.
+To try it without the dataset, [`samples/`](samples/) has six leaves, three healthy and three with mildew (the model gets all six right). They come from PlantVillage, the public collection these leaves appear to originate from; they may have been in the training data, so they are a demo, not a test.
 
 To repeat the whole process, from download to evaluation:
 
@@ -72,6 +72,7 @@ Notebook 01 needs a Kaggle API token in `~/.kaggle/kaggle.json` (kaggle.com → 
 - **No out-of-distribution check.** The model always answers healthy or mildew, whatever it is shown, so its answer only means something for a single detached leaf on a plain background, like the dataset's. A plain white image with no leaf gets a probability of mildew of 0.69; uniform green, grey or black images get anything from 0.00 to 0.99 depending on the shade. The app shows this warning on *Model Interaction*.
 - **One run, one seed.** No cross-validation. 0 errors in 879 is not "100%": by the rule of three, the 95% upper bound on the error rate is about 3/879 = 0.34%, for this kind of image.
 - **Dataset licence:** not stated on its [Kaggle page](https://www.kaggle.com/datasets/ahmadhabibhasanzein/cherry-leaves) (checked October 2026). The images are not redistributed here; the notebooks download them.
+- **Sample images:** the six files in `samples/` are from the PlantVillage dataset (D. P. Hughes & M. Salathé, [arXiv:1511.08060](https://arxiv.org/abs/1511.08060); [github.com/spMohanty/PlantVillage-Dataset](https://github.com/spMohanty/PlantVillage-Dataset)), licensed [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). Files renamed; otherwise unmodified. That licence also says models trained on the data fall under it; if the Kaggle dataset comes from PlantVillage, as it appears to, that would apply to this model too.
 - The app is a demo, not a tool for decisions in a real plantation.
 
 ---
