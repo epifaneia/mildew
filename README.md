@@ -2,6 +2,8 @@
 
 *Léelo en [español](README.es.md).*
 
+**Try it online: [mildew-8ygp4es5aitvvhp8buud32.streamlit.app](https://mildew-8ygp4es5aitvvhp8buud32.streamlit.app)**
+
 A convolutional network that tells healthy cherry leaves from leaves with powdery mildew, three notebooks that take it from the raw download to the test-set evaluation, and a Streamlit app to try it with your own images.
 
 It was my Code Institute Predictive Analytics project, in April 2024. In October 2026 I rescued it: the app was no longer deployed, the dependencies no longer installed, and the training notebook had no saved outputs, so nothing in the repository proved its accuracy. Rescuing it, I found two ways the old test set could leak into training. This version closes both and measures again.
@@ -45,6 +47,12 @@ The core of the project, and what to read first. Each one opens with its objecti
 The raw download is never modified: notebook 02 writes to `inputs/prepared/` and can be run again.
 
 ## Try it
+
+Online, nothing to install: [mildew-8ygp4es5aitvvhp8buud32.streamlit.app](https://mildew-8ygp4es5aitvvhp8buud32.streamlit.app). It sleeps when nobody uses it, so the first visit can take a minute to wake up. Upload the leaves in [`samples/`](samples/).
+
+![Model Interaction: a healthy leaf at 0.00 and a leaf with mildew at 1.00](docs/app-model-interaction.png)
+
+Or locally:
 
 ```bash
 python -m venv .venv && .venv\Scripts\activate          # on Linux: source .venv/bin/activate

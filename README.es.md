@@ -2,6 +2,8 @@
 
 *Read this in [English](README.md).*
 
+**Pruébala en línea: [mildew-8ygp4es5aitvvhp8buud32.streamlit.app](https://mildew-8ygp4es5aitvvhp8buud32.streamlit.app)**
+
 Una red convolucional que distingue hojas de cerezo sanas de hojas con oídio, tres notebooks que la llevan de la descarga en bruto a la evaluación en el conjunto de test, y una app en Streamlit para probarla con tus propias imágenes.
 
 Fue mi proyecto de Predictive Analytics en Code Institute, en abril de 2024. En octubre de 2026 lo rescaté: la app ya no estaba desplegada, las dependencias ya no instalaban y el notebook de entrenamiento no tenía salidas guardadas, así que nada en el repositorio demostraba su precisión. Al rescatarlo encontré dos vías por las que el test antiguo podía filtrarse al entrenamiento. Esta versión cierra las dos y vuelve a medir.
@@ -45,6 +47,12 @@ El núcleo del proyecto y lo primero que hay que leer. Cada uno empieza con su o
 La descarga en bruto nunca se modifica: el notebook 02 escribe en `inputs/prepared/` y se puede volver a ejecutar. Los notebooks están en inglés.
 
 ## Probarlo
+
+En línea, sin instalar nada: [mildew-8ygp4es5aitvvhp8buud32.streamlit.app](https://mildew-8ygp4es5aitvvhp8buud32.streamlit.app). Se duerme cuando nadie la usa, así que la primera visita puede tardar un minuto en despertarla. Sube las hojas de [`samples/`](samples/).
+
+![Model Interaction: una hoja sana a 0,00 y una con oídio a 1,00](docs/app-model-interaction.png)
+
+O en local:
 
 ```bash
 python -m venv .venv && .venv\Scripts\activate          # en Linux: source .venv/bin/activate
