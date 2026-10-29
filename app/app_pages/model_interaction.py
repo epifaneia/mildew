@@ -27,6 +27,13 @@ def display_page():
     _Educational demo: not meant for decisions in a real plantation._
     """)
 
+    st.warning(
+        "**Only single detached leaves on a plain background, like the dataset's.** "
+        "The model has no check for images unlike the ones it was trained on: it always "
+        "answers healthy or mildew, whatever it is shown. A plain white image, with no "
+        "leaf at all, gets a probability of mildew of 0.69. For a photo taken in a "
+        "plantation, or of anything else, the answer means nothing.")
+
     uploaded_files = st.file_uploader(
         "Drag and drop or click to upload cherry leaf images or a ZIP file",
         type=["jpg", "jpeg", "png", "zip"], accept_multiple_files=True)

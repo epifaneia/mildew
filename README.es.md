@@ -52,7 +52,9 @@ pip install -r requirements.txt
 streamlit run app/app.py
 ```
 
-El modelo entrenado está en el repositorio (`outputs/cherry_leaf_cnn.keras`), así que la app funciona sin reentrenar. *Model Interaction* acepta imágenes JPG o PNG, varias a la vez o en un ZIP.
+El modelo entrenado está en el repositorio (`outputs/cherry_leaf_cnn.keras`), así que la app funciona sin reentrenar ni descargar el dataset. *Model Interaction* acepta imágenes JPG o PNG, varias a la vez o en un ZIP.
+
+TODO: hojas de muestra para probar la app (`samples/`): pendiente de comprobar la licencia.
 
 Para repetir todo el proceso, de la descarga a la evaluación:
 
@@ -67,7 +69,8 @@ El notebook 01 necesita un token de la API de Kaggle en `~/.kaggle/kaggle.json` 
 
 - **Un solo dataset, y fácil.** Hojas sueltas sobre fondo liso. Cómo se comporta con fotos hechas en una plantación, con varias hojas, sombras y tierra, está sin medir, y es lo primero que necesitaría datos nuevos.
 - **50×50 píxeles**, mantenidos de 2024 para poder comparar. Las manchas tempranas de oídio pueden quedar por debajo de un píxel a ese tamaño.
-- **Una ejecución, una semilla.** Sin validación cruzada ni intervalo de confianza: con 0 errores en 879, lo honesto es «menos de un error de cada 300, aproximadamente, en este tipo de imagen», no «100 %».
+- **Sin control de imágenes fuera de distribución.** El modelo siempre responde sana u oídio, le enseñes lo que le enseñes, así que su respuesta solo significa algo para una hoja suelta sobre fondo liso, como las del dataset. Una imagen blanca, sin ninguna hoja, recibe una probabilidad de oídio de 0,69; imágenes de un solo color verde, gris o negro reciben de 0,00 a 0,99 según el tono. La app muestra este aviso en *Model Interaction*.
+- **Una ejecución, una semilla.** Sin validación cruzada. 0 errores en 879 no es «100 %»: por la regla del tres, la cota superior al 95 % de la tasa de error es de unos 3/879 = 0,34 %, en este tipo de imagen.
 - **Licencia del dataset:** no figura en su [página de Kaggle](https://www.kaggle.com/datasets/ahmadhabibhasanzein/cherry-leaves) (comprobado en octubre de 2026). Las imágenes no se redistribuyen aquí; los notebooks las descargan.
 - La app es una demo, no una herramienta para decidir en una plantación real.
 
